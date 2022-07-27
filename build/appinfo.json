@@ -1,0 +1,41 @@
+{
+    "targetPlatforms": [
+        "aplite", 
+        "basalt", 
+        "diorite"
+    ], 
+    "displayName": "pfd-face", 
+    "name": "pfd-face", 
+    "messageKeys": {
+        "CONDITIONS": 10002, 
+        "TEMPERATURE": 10000, 
+        "HUMIDITY": 10001
+    }, 
+    "companyName": "MakeAwesomeHappen", 
+    "enableMultiJS": true, 
+    "versionLabel": "1.0", 
+    "capabilities": [
+        "location"
+    ], 
+    "sdkVersion": "3", 
+    "appKeys": {
+        "CONDITIONS": 10002, 
+        "TEMPERATURE": 10000, 
+        "HUMIDITY": 10001
+    }, 
+    "longName": "pfd-face", 
+    "shortName": "pfd-face", 
+    "watchapp": {
+        "watchface": true
+    }, 
+    "resources": {
+        "media": [
+            {
+                "type": "bitmap", 
+                "name": "IMAGE_BACKGROUND", 
+                "file": "images/background.png"
+            }
+        ]
+    }, 
+    "uuid": "144b7a85-d8a5-4cb3-9329-c4401b89a4bd"
+}

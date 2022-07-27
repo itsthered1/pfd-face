@@ -1,0 +1,39 @@
+{
+  "name": "pfd-face",
+  "author": "MakeAwesomeHappen",
+  "version": "1.0.0",
+  "keywords": ["pebble-app"],
+  "private": true,
+  "dependencies": {},
+  "pebble": {
+    "displayName": "pfd-face",
+    "uuid": "144b7a85-d8a5-4cb3-9329-c4401b89a4bd",
+    "sdkVersion": "3",
+    "enableMultiJS": true,
+    "targetPlatforms": [
+      "aplite",
+      "basalt",
+      "diorite"
+    ],
+    "watchapp": {
+      "watchface": true
+    },
+    "messageKeys": [
+      "TEMPERATURE",
+      "HUMIDITY",
+      "CONDITIONS"
+    ],
+    "capabilities": [
+      "location"
+    ],
+    "resources": {
+      "media": [
+        {
+          "type": "bitmap",
+          "name": "IMAGE_BACKGROUND",
+          "file": "images/background.png"
+        }
+      ]
+    }
+  }
+}
