@@ -24,11 +24,13 @@ function fetch(pos) {
                 var temperature = Math.round(json.main.temp - 273.15);
                 var humidity = json.main.humidity;
                 var conditions = json.weather[0].main;
+                var windDeg = json.wind.deg;
 
                 var dictionary = {
                     'TEMPERATURE': temperature,
                     'HUMIDITY': humidity,
-                    'CONDITIONS': conditions                            
+                    'CONDITIONS': conditions,
+                    'WIND_DIRECTION': windDeg                           
                 }
 
                 Pebble.sendAppMessage(dictionary, 

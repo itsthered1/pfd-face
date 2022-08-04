@@ -21,7 +21,8 @@
     "messageKeys": [
       "TEMPERATURE",
       "HUMIDITY",
-      "CONDITIONS"
+      "CONDITIONS",
+      "WIND_DIRECTION"
     ],
     "capabilities": [
       "location"
@@ -32,6 +33,11 @@
           "type": "bitmap",
           "name": "IMAGE_BACKGROUND",
           "file": "images/background.png"
+        },
+        {
+          "type": "bitmap",
+          "name": "IMAGE_WIND_DIRECTION",
+          "file": "images/wind_direction.png"
         }
       ]
     }

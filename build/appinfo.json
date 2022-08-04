@@ -7,6 +7,7 @@
     "displayName": "pfd-face", 
     "name": "pfd-face", 
     "messageKeys": {
+        "WIND_DIRECTION": 10003, 
         "CONDITIONS": 10002, 
         "TEMPERATURE": 10000, 
         "HUMIDITY": 10001
@@ -19,6 +20,7 @@
     ], 
     "sdkVersion": "3", 
     "appKeys": {
+        "WIND_DIRECTION": 10003, 
         "CONDITIONS": 10002, 
         "TEMPERATURE": 10000, 
         "HUMIDITY": 10001
@@ -34,6 +36,11 @@
                 "type": "bitmap", 
                 "name": "IMAGE_BACKGROUND", 
                 "file": "images/background.png"
+            }, 
+            {
+                "type": "bitmap", 
+                "name": "IMAGE_WIND_DIRECTION", 
+                "file": "images/wind_direction.png"
             }
         ]
     }, 

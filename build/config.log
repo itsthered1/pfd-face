@@ -1,13 +1,13 @@
-# project  configured on Wed Jul 27 01:18:02 2022 by
+# project  configured on Wed Jul 27 14:00:26 2022 by
 # waf 1.7.11 (abi 98, python 20712f0 on linux2)
 # using /home/claudio/.pebble-sdk/SDKs/current/sdk-core/pebble/waf configure
 #
 ----------------------------------------
 Setting top to
-/mnt/s/Development/Projects/Pebble/pfd-face
+/mnt/c/Users/Claudio/Desktop/pfd-face
 ----------------------------------------
 Setting out to
-/mnt/s/Development/Projects/Pebble/pfd-face/build
+/mnt/c/Users/Claudio/Desktop/pfd-face/build
 ----------------------------------------
 Checking for program webpack
 /home/claudio/.pebble-sdk/SDKs/current/node_modules/.bin/webpack

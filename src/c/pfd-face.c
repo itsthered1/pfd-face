@@ -7,17 +7,23 @@ static TextLayer *s_month_layer;
 static TextLayer *s_weather_layer;
 static TextLayer *s_humidity_layer;
 static TextLayer *s_conditions_layer;
+
+static RotBitmapLayer *s_wind_layer;
 static BitmapLayer *s_background_layer;
+
+static GBitmap *s_wind_direction;
 static GBitmap *s_background_bitmap;
 
 static void inbox_received_callback(DictionaryIterator *iter, void *context) {
   static char temperature_buffer[8];
   static char humidity_buffer[8];
   static char conditions_buffer[32];
+  static char wind_direction_buffer[8];
 
   Tuple *temp_tuple = dict_find(iter, MESSAGE_KEY_TEMPERATURE);
   Tuple *humidity_tuple = dict_find(iter, MESSAGE_KEY_HUMIDITY);
   Tuple *conditions_tuple = dict_find(iter, MESSAGE_KEY_CONDITIONS);
+  Tuple *direction_tuple = dict_find(iter, MESSAGE_KEY_WIND_DIRECTION);
 
   snprintf(temperature_buffer, sizeof(temperature_buffer), "%d°", (int)temp_tuple->value->int32);
   text_layer_set_text(s_weather_layer, temperature_buffer);
@@ -25,6 +31,8 @@ static void inbox_received_callback(DictionaryIterator *iter, void *context) {
   text_layer_set_text(s_humidity_layer, humidity_buffer);
   snprintf(conditions_buffer, sizeof(conditions_buffer), "%s", conditions_tuple->value->cstring);
   text_layer_set_text(s_conditions_layer, conditions_buffer);
+  snprintf(wind_direction_buffer, sizeof(wind_direction_buffer), "%d", (int)direction_tuple->value->int32);
+  rot_bitmap_layer_set_angle(s_wind_layer, wind_direction_buffer);
 }
 
 static void inbox_dropped_callback(AppMessageResult reason, void *context) {
@@ -64,10 +72,15 @@ static void main_window_load(Window *window) {
   Layer *window_layer = window_get_root_layer(window);
   GRect bounds = layer_get_bounds(window_layer);
 
+
   s_background_bitmap = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_BACKGROUND);
   s_background_layer = bitmap_layer_create(bounds);
   bitmap_layer_set_bitmap(s_background_layer, s_background_bitmap);
   layer_add_child(window_layer, bitmap_layer_get_layer(s_background_layer));
+
+  s_wind_direction = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_WIND_DIRECTION);
+  s_wind_layer = rot_bitmap_layer_create(s_wind_direction);
+  layer_add_child(window_layer, bitmap_layer_get_layer(s_wind_layer));
 
   s_time_layer = text_layer_create(GRect(108, 76, 28, 14));
   text_layer_set_background_color(s_time_layer, GColorClear);
@@ -107,7 +120,7 @@ static void main_window_load(Window *window) {
   text_layer_set_text(s_humidity_layer, "--%");
   layer_add_child(window_layer, text_layer_get_layer(s_humidity_layer));
 
-  s_conditions_layer = text_layer_create(GRect(-14, 0, 76, 28));
+  s_conditions_layer = text_layer_create(GRect(-14, 0, 76, 32));
   text_layer_set_background_color(s_conditions_layer, GColorClear);
   text_layer_set_text_color(s_conditions_layer, GColorGreen);
   text_layer_set_font(s_conditions_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18));
@@ -122,7 +135,11 @@ static void main_window_unload(Window *window) {
   text_layer_destroy(s_today_layer);
   text_layer_destroy(s_month_layer);
   text_layer_destroy(s_weather_layer);
+  text_layer_destroy(s_humidity_layer);
+  text_layer_destroy(s_conditions_layer);
   bitmap_layer_destroy(s_background_layer);
+  rot_bitmap_layer_destroy(s_wind_layer);
+  gbitmap_destroy(s_wind_direction);
   gbitmap_destroy(s_background_bitmap);
 }
 

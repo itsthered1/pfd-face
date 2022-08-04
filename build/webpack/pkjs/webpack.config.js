@@ -6,7 +6,7 @@ const isSandbox = false;
 
 // Array with absolute file path strings
 const entryFilenames = ["_pkjs_shared_additions.js",
-"/mnt/s/Development/Projects/Pebble/pfd-face/src/pkjs/index.js"];
+"/mnt/c/Users/Claudio/Desktop/pfd-face/src/pkjs/index.js"];
 
 // folder path string
 const outputPath = "build";
@@ -18,10 +18,10 @@ const outputFilename = "pebble-js-app.js";
 const resolveRoots = ["/home/claudio/.pebble-sdk/SDKs/current/sdk-core/pebble/common/include",
 "/home/claudio/.pebble-sdk/SDKs/current/sdk-core/pebble/common/tools/webpack",
 "/home/claudio/.pebble-sdk/SDKs/current/node_modules",
-"/mnt/s/Development/Projects/Pebble/pfd-face/build/js"];
+"/mnt/c/Users/Claudio/Desktop/pfd-face/build/js"];
 
 // Object, { alias1: 'path1', ... }
-const resolveAliases = {"app_package.json": "/mnt/s/Development/Projects/Pebble/pfd-face/package.json"};
+const resolveAliases = {"app_package.json": "/mnt/c/Users/Claudio/Desktop/pfd-face/package.json"};
 
 // null or Object with key 'sourceMapFilename'
 const sourceMapConfig = {"sourceMapFilename": "pebble-js-app.js.map"};
