@@ -32,7 +32,7 @@ static void inbox_received_callback(DictionaryIterator *iter, void *context) {
   snprintf(conditions_buffer, sizeof(conditions_buffer), "%s", conditions_tuple->value->cstring);
   text_layer_set_text(s_conditions_layer, conditions_buffer);
   snprintf(wind_direction_buffer, sizeof(wind_direction_buffer), "%d", (int)direction_tuple->value->int32);
-  rot_bitmap_layer_set_angle(s_wind_layer, wind_direction_buffer);
+  // rot_bitmap_layer_set_angle(s_wind_layer, wind_direction_buffer);
 }
 
 static void inbox_dropped_callback(AppMessageResult reason, void *context) {
@@ -78,9 +78,9 @@ static void main_window_load(Window *window) {
   bitmap_layer_set_bitmap(s_background_layer, s_background_bitmap);
   layer_add_child(window_layer, bitmap_layer_get_layer(s_background_layer));
 
-  s_wind_direction = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_WIND_DIRECTION);
-  s_wind_layer = rot_bitmap_layer_create(s_wind_direction);
-  layer_add_child(window_layer, bitmap_layer_get_layer(s_wind_layer));
+  // s_wind_direction = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_WIND_DIRECTION);
+  // s_wind_layer = rot_bitmap_layer_create(s_wind_direction);
+  // layer_add_child(window_layer, bitmap_layer_get_layer(s_wind_layer));
 
   s_time_layer = text_layer_create(GRect(108, 76, 28, 14));
   text_layer_set_background_color(s_time_layer, GColorClear);
