@@ -82,7 +82,7 @@ static void main_window_load(Window *window) {
   // s_wind_layer = rot_bitmap_layer_create(s_wind_direction);
   // layer_add_child(window_layer, bitmap_layer_get_layer(s_wind_layer));
 
-  s_time_layer = text_layer_create(GRect(108, 76, 28, 14));
+  s_time_layer = text_layer_create(GRect(108, 75, 28, 14));
   text_layer_set_background_color(s_time_layer, GColorClear);
   text_layer_set_text_color(s_time_layer, GColorGreen);
   text_layer_set_font(s_time_layer, fonts_get_system_font(FONT_KEY_GOTHIC_14));
